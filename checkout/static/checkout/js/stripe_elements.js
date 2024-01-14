@@ -6,29 +6,27 @@
     https://stripe.com/docs/stripe-js
 */
 
-var stripePublicKey = $("#id_stripe_public_key").text().slice(1, -1);
-var clientScret = $("#id_client_secret").text().slice(1, -1);
+var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
+var clientSecret = $('#id_client_secret').text().slice(1, -1);
 var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
-
 var style = {
-  base: {
-    color: "#000",
-    fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-    fontSmoothing: "antialiased",
-    fontSize: "16px",
-    "::placeholder": {
-      color: "#aab7c4",
+    base: {
+        color: '#000',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontSmoothing: 'antialiased',
+        fontSize: '16px',
+        '::placeholder': {
+            color: '#aab7c4'
+        }
     },
-  },
-  invalid: {
-    color: "#dc3545",
-    iconColor: "#dc3545",
-  },
+    invalid: {
+        color: '#dc3545',
+        iconColor: '#dc3545'
+    }
 };
-
-var card = elements.create("card", { style: style });
-card.mount("#card-element");
+var card = elements.create('card', { style: style });
+card.mount('#card-element');
 
 // Handle realtime validation errors on the card element
 card.addEventListener('change', function (event) {
@@ -39,8 +37,8 @@ card.addEventListener('change', function (event) {
                 <i class="fas fa-times"></i>
             </span>
             <span>${event.error.message}</span>
-            `;
-            $(errorDiv).html(html);
+        `;
+        $(errorDiv).html(html);
     } else {
         errorDiv.textContent = '';
     }
@@ -49,7 +47,7 @@ card.addEventListener('change', function (event) {
 // Handle form submit
 var form = document.getElementById('payment-form');
 
-form.addEventListener('submit', function(ev) {
+form.addEventListener('submit', function (ev) {
     ev.preventDefault();
     card.update({ 'disabled': true });
     $('#submit-button').attr('disabled', true);
@@ -57,9 +55,9 @@ form.addEventListener('submit', function(ev) {
         payment_method: {
             card: card,
         }
-    }).then(function(result){
+    }).then(function (result) {
         if (result.error) {
-            var erroDiv = document.getElementById('card-errors');
+            var errorDiv = document.getElementById('card-errors');
             var html = `
                 <span class="icon" role="alert">
                 <i class="fas fa-times"></i>
@@ -69,7 +67,7 @@ form.addEventListener('submit', function(ev) {
             card.update({ 'disabled': false });
             $('#submit-button').attr('disabled', false);
         } else {
-            if (result.paymenIntent.status === 'succeeded') {
+            if (result.paymentIntent.status === 'succeeded') {
                 form.submit();
             }
         }

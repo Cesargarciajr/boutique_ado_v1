@@ -5,7 +5,8 @@ from django.conf import settings
 from .forms import OrderForm
 from bag.contexts import bag_contents
 
-import stripe 
+import stripe
+
 
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
@@ -25,14 +26,11 @@ def checkout(request):
         currency=settings.STRIPE_CURRENCY,
     )
 
-    print(intent)
-
     order_form = OrderForm()
 
-    if not stripe_key:
+    if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. \
-            Did you forget to set it in your enviroment?')
-
+            Did you forget to set it in your environment?')
 
     template = 'checkout/checkout.html'
     context = {
