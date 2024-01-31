@@ -30,7 +30,8 @@ SECRET_KEY = 'django-insecure-a!@8ow(7r^09l0uy@spt_uutm7zpe1fr8di)(+x_(i0s-s5^gv
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-cesargarciajr-boutique-a-r7kk6kkfji.us2.codeanyapp.com',]
+    '8000-cesargarciajr-boutique-a-r7kk6kkfji.us2.codeanyapp.com',
+    '8006-cesargarciajr-boutique-a-r7kk6kkfji.us2.codeanyapp.com',]
 
 
 # Application definition
@@ -50,6 +51,7 @@ INSTALLED_APPS = [
     'products',
     'bag',
     'checkout',
+    'profiles',
 
     # Other
     'crispy_forms',
