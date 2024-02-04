@@ -31,7 +31,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-cesargarciajr-boutique-a-r7kk6kkfji.us2.codeanyapp.com',
-    '8006-cesargarciajr-boutique-a-r7kk6kkfji.us2.codeanyapp.com',]
+    '8006-cesargarciajr-boutique-a-r7kk6kkfji.us2.codeanyapp.com',
+    '8000-cesargarcia-boutiqueado-35emeqnu8w1.ws-eu108.gitpod.io',]
 
 
 # Application definition
