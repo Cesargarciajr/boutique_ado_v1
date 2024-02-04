@@ -35,7 +35,7 @@ ALLOWED_HOSTS = [
     '8006-cesargarciajr-boutique-a-r7kk6kkfji.us2.codeanyapp.com',
     '8000-cesargarcia-boutiqueado-35emeqnu8w1.ws-eu108.gitpod.io',
     'local-host',
-    'https://ecomerce-boutiqueado-232c595dce56.herokuapp.com',]
+    'https://ecomerce-boutiqueado-232c595dce56.herokuapp.com/',]
 
 
 # Application definition
